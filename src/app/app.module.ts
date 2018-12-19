@@ -6,25 +6,48 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { UploadPage } from '../pages/upload/upload';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule,
+         AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { firebaseConfig } from '../firebase-config';
+import { PipesModule } from '../pipes/pipes.module';
+
+import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { UploadProvider } from '../providers/upload/upload';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    UploadPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    UploadPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AngularFireDatabase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    ImagePicker,
+    UploadProvider
   ]
 })
 export class AppModule {}

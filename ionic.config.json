@@ -1,5 +1,8 @@
 {
   "name": "UploadImages",
-  "integrations": {},
-  "type": "ionic-angular"
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "14c096f2"
 }

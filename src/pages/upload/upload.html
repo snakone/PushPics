@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>{{title | placeHolder}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+      <ion-item padding class="m-t--30">
+        <ion-label floating>Title</ion-label>
+        <ion-input [(ngModel)]="title" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="imagePreview">
+          <img [src]="imagePreview"/>
+      </ion-item>
+    </ion-list>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button block icon-left
+                  color="green"
+                  (click)="selectPicture()">
+            <ion-icon name="photos"></ion-icon>
+            Select
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block icon-left
+                  (click)="openCamera()">
+            <ion-icon name="camera"></ion-icon>
+            Camera
+          </button>
+        </ion-col>
+      </ion-row>
+
+
+
+    <ion-footer no-shadow>
+      <ion-toolbar>
+        <button ion-button block icon-left
+                color="secondary"
+                [disabled]="title.length <= 1 || imagePreview.length <= 0"
+                (click)="uploadPicture()">
+            <ion-icon name="cloud-upload"></ion-icon>
+             Upload
+        </button>
+      </ion-toolbar>
+    </ion-footer>
+
+</ion-content>
