@@ -19,6 +19,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { UploadProvider } from '../providers/upload/upload';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UploadProvider } from '../providers/upload/upload';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     ImagePicker,
-    UploadProvider
+    UploadProvider,
+    SocialSharing
   ]
 })
 export class AppModule {}

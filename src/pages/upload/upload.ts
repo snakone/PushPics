@@ -14,10 +14,12 @@ export class UploadPage {
   title: string = "";
   imagePreview: string = "";
   image64: string;
+  percent: number;
 
   constructor(private camera: Camera,
               public _uploadFireBase: UploadProvider,
               public navCtrl: NavController) {
+          this.percent = _uploadFireBase.percent;
   }
 
   openCamera(){

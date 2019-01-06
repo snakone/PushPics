@@ -1,7 +1,23 @@
 page-home {
 
-  .share {
-    margin-top: -3em;
+  ion-card-content {
+    padding: 13px 16px 0 16px!important;
+  }
+
+  ion-card {
+    display: block;
+    margin: 0 auto;
+    max-width: 360px;
+  }
+
+  .p-t-30 {
+    padding-top: 30vh;
+  }
+  
+  img {
+    max-height: 325px;
+    display: block;
+    margin: 0 auto;
   }
 
 }

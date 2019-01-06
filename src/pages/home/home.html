@@ -8,29 +8,49 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let picture of pictures | async">
-    <ion-card-content>
-      <img [src]="picture.img"/>
+    <div class="p-t-30" text-center *ngIf="_post.postList.length == 0">
+          <h4>No Pictures yet!</h4>
+          <h4>Try to add one using the button below.</h4>
+    </div>
 
-      <ion-card-title>{{picture.title}}</ion-card-title>
+  <ion-card *ngFor="let post of _post.postList; let i = index">
+    <ion-card-content>
+      <img [src]="post.img"/>
+
+      <ion-card-title>{{post.title}}</ion-card-title>
     </ion-card-content>
 
-    <ion-row>
-      <ion-col text-right>
+    <ion-row text-center>
+      <ion-col>
         <button ion-button clear small icon-left
-                color="primary" class="share">
+                color="primary" class="share"
+                (click)="shareWithFacebook(post)">
         <ion-icon name="share-alt"></ion-icon>
           Share..
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button clear small icon-left
+                color="danger" class="share"
+                (click)="deletePost(post, i)">
+          <ion-icon name="share-alt"></ion-icon>
+          Delete
         </button>
       </ion-col>
     </ion-row>
   </ion-card>
 
-  <ion-fab bottom right>
+<ion-fab bottom right>
   <button ion-fab mini [navPush]="uploadPage"
           color="green">
     <ion-icon name="add"></ion-icon>
   </button>
 </ion-fab>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)"
+                      [enabled]="MorePictures">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
 
 </ion-content>

@@ -38,13 +38,15 @@
         </ion-col>
       </ion-row>
 
+      {{percent | async}}
+
 
 
     <ion-footer no-shadow>
       <ion-toolbar>
         <button ion-button block icon-left
                 color="secondary"
-                [disabled]="title.length <= 1 || imagePreview.length <= 0"
+                [disabled]="title.length <= 1 || imagePreview.length <= 1"
                 (click)="uploadPicture()">
             <ion-icon name="cloud-upload"></ion-icon>
              Upload

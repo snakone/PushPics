@@ -69,5 +69,8 @@
     <plugin name="cordova-plugin-telerik-imagepicker" spec="2.2.2">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Pick a Picture to Upload" />
     </plugin>
+    <plugin name="cordova-plugin-x-socialsharing" spec="5.4.3">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
+    </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>
